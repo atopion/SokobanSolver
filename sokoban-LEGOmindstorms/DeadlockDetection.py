@@ -5,13 +5,14 @@ class DeadlockDetection:
 
     # TODO Missing bounds at self.width
 
-    def __init__(self, game_array, target_array, width, height):
+    def __init__(self, game_array, target_array, width, height, game_map):
         self.game_array = game_array
         self.target_array = target_array
         self.width = width
         self.height = height
         self.deadlock_array = np.zeros(self.width*self.height, dtype=int)
         self.detect_pull()
+
 
     # Self designed deadlock detection.
     # Sets every corner as deadlocked and then uses the recursive property of deadlocks

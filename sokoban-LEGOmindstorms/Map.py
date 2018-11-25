@@ -4,10 +4,6 @@ import numpy as np
 class Map:
 
     clear     = lambda self, x : 5 if x == 1 or x == 2 else x
-    # box       = lambda self, x : x == 2
-    targets   = lambda self, x : x == 3
-    playerpos = lambda self, x : x == 1
-
 
     def __init__(self, mapString):
         self.mapString = mapString
@@ -16,11 +12,12 @@ class Map:
         self.height = 0
         self.mapProduction()
         self.clearedMap = list(map(self.clear, self.map))
-        self.player = list(filter(self.playerpos, self.map))[0]
+        self.player = [i for i, x in enumerate(self.map) if x == 1][0]
         self.boxArray = [i for i, x in enumerate(self.map) if x == 2]
         self.targetArray = [i for i, x in enumerate(self.map) if x == 3]
 
         self.reachableArray = np.zeros(self.width * self.height, dtype=int)
+        self.visited = np.zeros(self.width * self.height, dtype=int)
 
     def mapProduction(self):
         self.map = []
@@ -274,6 +271,29 @@ class Map:
                 tmp = ""
                 count = 0
 
+    def calculate_reachable_area(self, box_array, player_pos):
+        visited = np.zeros(self.width * self.height, dtype=int)
+        self._calc_reachable_area(visited, box_array, player_pos)
+        return visited
+
+    def _calc_reachable_area(self, visited, box_array, pos):
+        if pos < 0 or pos > len(self.map) or visited[pos] == 1 or self.map[pos] == 4 or pos in box_array:
+            return
+        visited[pos] = 1
+        self._calc_reachable_area(visited, box_array, pos + 1)
+        self._calc_reachable_area(visited, box_array, pos - 1)
+        self._calc_reachable_area(visited, box_array, pos + self.width)
+        self._calc_reachable_area(visited, box_array, pos - self.width)
+
+    def can_reach(self, box_array, player_pos, index):
+        vi = self.calculate_reachable_area(box_array, player_pos)
+        return vi[index] == 1
+
+    def new_normalized_player_position(self, box_array, position):
+        vi = self.calculate_reachable_area(box_array, position)
+        for i in range(0, len(vi), 1):
+            if vi[i] == 1:
+                return i
 
 #   Helpers
     def isUnpassable(self, x):

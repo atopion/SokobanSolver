@@ -7,7 +7,7 @@ import TranspositionTable
 import AssignmentAlgorithms
 import os
 
-level_name = "level2.txt"
+level_name = "level3.txt"
 cwd = os.getcwd()
 path = os.path.join(cwd, "level", level_name)
 level = open(path, "r").read()
@@ -46,7 +46,5 @@ else:
     print(result)
     print("PATH:", res)
     print("")
-    print("")
-
-os.system("java -classpath \"C:\\Users\\atopi\\Codes\\SokobanRobot\\SokobanRobot\\out\\production\\SokobanRobot\" " +
+    os.system("java -classpath \"C:\\Users\\atopi\\Codes\\SokobanRobot\\SokobanRobot\\out\\production\\SokobanRobot\" " +
           "distanceboard.Viewer \"" + path + "\" \"" + str(result) + "\"")

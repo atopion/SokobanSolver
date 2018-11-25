@@ -14,28 +14,42 @@ class Execution:
         self.width = game_map.width
         self.height = game_map.height
         self.assignment_algorithms = AssignmentAlgorithms(game_map.width, game_map.height, game_map.getTargetsArray(), game_map.getClearedMap())
-        self.deadlock_detection = DeadlockDetection(game_map.getGameMap(), game_map.getTargetsArray(), self.width, self.height)
-        # self.game_map.print_array(self.deadlock_detection.deadlock_array)
-        # self.game_map.print_array(self.game_map.getClearedMap())
+        self.deadlock_detection = DeadlockDetection(game_map.getGameMap(), game_map.getTargetsArray(), self.width, self.height, self.game_map)
 
-    def possible_moves(self, box, clearedMap, boxes):
+    # def possible_moves1(self, box, clearedMap, boxes):
+    #    result = []
+    #    # Move to the right
+    #    if clearedMap[box +1] != 4 and clearedMap[box -1] != 4\
+    #            and not self.cont(boxes, box +1) and not self.cont(boxes, box -1)\
+    #            and self.deadlock_detection.deadlock_array[box +1] == 0 and (box) % self.width != 0:
+    #       result.append([box, box+1])
+    #    # Move to the left
+    #    if clearedMap[box -1] != 4 and clearedMap[box +1]\
+    #            and not self.cont(boxes, box -1) and not self.cont(boxes, box +1)\
+    #            and self.deadlock_detection.deadlock_array[box -1] == 0 and (box) % self.width != 1:
+    #        result.append([box, box-1])
+    #    # Move down
+    #    if clearedMap[box + self.width] != 4 and clearedMap[box - self.width]\
+    #            and not self.cont(boxes, box + self.width) and not self.cont(boxes, box - self.width)\
+    #            and (box + self.width) <= len(self.game_map.map)
+    #            and self.deadlock_detection.deadlock_array[box + self.width] == 0:
+    #        result.append([box, box + self.width])
+    #    # Move up
+    #    if clearedMap[box - self.width] != 4 and clearedMap[box + self.width]\
+    #            and not self.cont(boxes, box - self.width) and not self.cont(boxes, box + self.width)\
+    #            and (box - self.width) >= 0 and self.deadlock_detection.deadlock_array[box - self.width] == 0:
+    #        result.append([box, box - self.width])
+    #    return result
+
+    def possible_moves(self, box, cleared_map, boxes):
         result = []
-        # Move to the right
-        if clearedMap[box +1] != 4 and not self.cont(boxes, box +1)\
-                and self.deadlock_detection.deadlock_array[box +1] == 0 and (box) % self.width != 0:
-            result.append([box, box+1])
-        # Move to the left
-        if clearedMap[box -1] != 4 and not self.cont(boxes, box -1)\
-                and self.deadlock_detection.deadlock_array[box -1] == 0 and (box) % self.width != 1:
-            result.append([box, box-1])
-        # Move down
-        if clearedMap[box + self.width] != 4 and not self.cont(boxes, box + self.width)\
-                and (box + self.width) <= len(self.game_map.map) and self.deadlock_detection.deadlock_array[box + self.width] == 0:
-            result.append([box, box + self.width])
-        # Move up
-        if clearedMap[box - self.width] != 4 and not self.cont(boxes, box - self.width)\
-                and (box - self.width) >= 0 and self.deadlock_detection.deadlock_array[box - self.width] == 0:
-            result.append([box, box - self.width])
+        for a in [1, -1, self.width, -self.width]:
+            b1 = cleared_map[box + a] != 4 and cleared_map[box - a] != 4
+            b2 = not self.cont(boxes, box + a) and not self.cont(boxes, box - a)
+            b3 = self.deadlock_detection.deadlock_array[box + a] == 0
+            b4 = 0 <= (box + a) <= len(self.game_map.map)
+            if b1 and b2 and b3 and b4:
+                result.append([box, box + a])
         return result
 
     def analyse_state(self, node):
@@ -54,16 +68,23 @@ class Execution:
                     # print("Deadlock: ", m[1])
                     continue
 
-                pos = self.game_map.normalizedPlayerPositionMove(m)
+                # pos = self.game_map.normalizedPlayerPositionMove(m)
                 # print("Move", m)
                 # print("Posititon: ", (m[0] - (m[1] - m[0])))
                 # print("Reachable: ", self.game_map.is_reachable(m[0] - (m[1] - m[0])))
                 # print(self.game_map.print_reachableArray())
-                if not self.game_map.is_reachable(m[0] - (m[1] - m[0])):
-                    # print("Not reachable: ", m[1])
+                if not self.game_map.can_reach(box_array, node.player_pos, m[0] - (m[1] - m[0])):
+                    # print("Unreachable: ", m[0] - (m[1] - m[0]))
                     continue
+
+                #if not self.game_map.is_reachable(m[0] - (m[1] - m[0])):
+                    # print("Not reachable")
+                    # self.game_map.print_reachableArray()
+                    # print("Not reachable: ", m[1])
+                #    continue
                 new_box_array = np.array(box_array, dtype=int)
                 new_box_array[i] = m[1]
+                pos = self.game_map.new_normalized_player_position(new_box_array, m[0])
                 # new_box_array = box_array[:i].append(m[1]) + box_array[i + 1:]
                 if self.transposition_table.lookup(new_box_array, pos):
                     # print("Already visited: ", m[1])
@@ -71,26 +92,26 @@ class Execution:
                 self.transposition_table.insert(new_box_array, pos)
                 # print("")
                 # print("New Box Array: ", new_box_array)
-                print("")
-                print("Map:")
-                self.game_map.print_map_tmp(m, box_array)
+                # print("")
+                # print("Map:")
+                # self.game_map.print_map_tmp(m, box_array)
                 # print("TARGETS: ", self.game_map.getTargetsArray())
                 # print("NEW_BOX_ARRAY: ", new_box_array)
                 bound = self.assignment_algorithms.hungarianAssignment(new_box_array)
                 # print("BOUND: ", bound)
                 if bound == 0:
                     # Target found
-                    return Node(new_box_array, pos, node, m, 0)
+                    return Node(new_box_array, m[0], node, m, 0)
                 f = True
                 for j in range(0, len(node.sons), 1):
                     if bound < node.sons[j].lower_bound:
-                        node.sons.insert(j, Node(new_box_array, pos, node, m, bound))
+                        node.sons.insert(j, Node(new_box_array, m[0], node, m, bound))
                         # result.insert(j, Node(new_box_array, pos, node, m, bound))
                         # print("Smaller: ", node.sons)
                         f = False
                         break
                 if f:
-                    node.sons.append(Node(new_box_array, pos, node, m, bound))
+                    node.sons.append(Node(new_box_array, m[0], node, m, bound))
                     # print("Last: ", node.sons)
                     # result.append(Node(new_box_array, pos, node, m, bound))
 
