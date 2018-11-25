@@ -122,6 +122,7 @@ public class Board extends JFrame implements ActionListener, GridCell.CellClicke
         this.add(panel, BorderLayout.LINE_END);
 
         this.pack();
+
     }
 
     @Override

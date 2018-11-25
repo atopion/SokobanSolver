@@ -66,6 +66,15 @@ public class GridPane extends JPanel
         cell.setBox();
     }
 
+    public GridCell getPlayer()
+    {
+        for(int i = 0; i < cols; i++)
+            for(int j = 0; j < rows; j++)
+                if(get(i, j).isPlayer())
+                    return get(i, j);
+        return null;
+    }
+
     public int getCols() { return cols; }
     public int getRows() { return rows; }
 }
