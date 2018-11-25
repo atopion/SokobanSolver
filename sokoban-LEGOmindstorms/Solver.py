@@ -46,6 +46,7 @@ else:
     print(result)
     print("PATH:", res)
     print("")
+    print("")
 
 os.system("java -classpath \"C:\\Users\\atopi\\Codes\\SokobanRobot\\SokobanRobot\\out\\production\\SokobanRobot\" " +
           "distanceboard.Viewer \"" + path + "\" \"" + str(result) + "\"")
