@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66994118-cbfb-403a-b8a4-7bce6c6ac529" name="Default" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SokobanRobot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SokobanRobot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SokobanRobot" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SokobanRobot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SokobanRobot/out/production/SokobanRobot/distanceboard/Viewer$Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot/out/production/SokobanRobot/distanceboard/Viewer$Move.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SokobanRobot/out/production/SokobanRobot/distanceboard/Viewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot/out/production/SokobanRobot/distanceboard/Viewer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SokobanRobot/src/distanceboard/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot/src/distanceboard/Viewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Map.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Map.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py" afterDir="false" />
-    </list>
+    <list default="true" id="66994118-cbfb-403a-b8a4-7bce6c6ac529" name="Default" comment="Optimized deadlock detection and reachable detection" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +211,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -345,7 +331,7 @@
       <workItem from="1543095317319" duration="13830000" />
       <workItem from="1543148285099" duration="3591000" />
       <workItem from="1543154391683" duration="9822000" />
-      <workItem from="1543174734551" duration="872000" />
+      <workItem from="1543174734551" duration="967000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1540903197470</created>
@@ -354,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540903197470</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Optimized deadlock detection and reachable detection">
+      <created>1543179106635</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543179106635</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70030000" />
+    <option name="totallyTimeSpent" value="70125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
@@ -402,8 +395,12 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/SokobanRobot" />
+    </ignored-roots>
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Optimized deadlock detection and reachable detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized deadlock detection and reachable detection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/PriorityQueue.java">
