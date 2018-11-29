@@ -6,8 +6,9 @@ from Execution import Execution
 import TranspositionTable
 import AssignmentAlgorithms
 import os
+import time
 
-level_name = "level3.txt"
+level_name = "level4.txt"
 cwd = os.getcwd()
 path = os.path.join(cwd, "level", level_name)
 level = open(path, "r").read()
@@ -16,6 +17,7 @@ game_map = GameMap.Map(level)
 game_map.mapProduction()
 game_map.mapPrinting()
 
+start = time.time()
 assignment = AssignmentAlgorithms.AssignmentAlgorithms(game_map.width, game_map.height, game_map.getTargetsArray(), game_map.getClearedMap())
 # states = StateTree.StateTree(game_map.getBoxArray(), game_map.getPlayerPosition(), assignment)
 
@@ -25,8 +27,13 @@ table.insert(game_map.getBoxArray(), game_map.getPlayerPosition())
 
 root = Node(game_map.getBoxArray(), game_map.getPlayerPosition(), None, None, assignment.greedyAssignment(game_map.getBoxArray()))
 execution = Execution(table, game_map)
+end = time.time()
+print("Preparation time: ", end - start)
 
+start = time.time()
 solution = execution.execute(root)
+end = time.time()
+print("Execution time: ", end - start)
 result = []
 res = ""
 node = solution
@@ -38,10 +45,10 @@ else:
     while node.farther is not None:
         result.insert(0, node.move)
         n = node.move[1] - node.move[0]
-        if n == 1: res = " right," + res
-        elif n == -1: res = " left," + res
-        elif n < 0: res = " up," + res
-        elif n > 0: res = " down," + res
+        if n == 1: res = "right," + res
+        elif n == -1: res = "left," + res
+        elif n < 0: res = "up," + res
+        elif n > 0: res = "down," + res
         node = node.farther
     print(result)
     print("PATH:", res)

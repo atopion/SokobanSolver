@@ -97,7 +97,8 @@ class Execution:
                 # self.game_map.print_map_tmp(m, box_array)
                 # print("TARGETS: ", self.game_map.getTargetsArray())
                 # print("NEW_BOX_ARRAY: ", new_box_array)
-                bound = self.assignment_algorithms.hungarianAssignment(new_box_array)
+                #bound = self.assignment_algorithms.hungarianAssignment(new_box_array)
+                bound = self.assignment_algorithms.greedyAssignment(new_box_array)
                 # print("BOUND: ", bound)
                 if bound == 0:
                     # Target found
@@ -108,14 +109,21 @@ class Execution:
                         node.sons.insert(j, Node(new_box_array, m[0], node, m, bound))
                         # result.insert(j, Node(new_box_array, pos, node, m, bound))
                         # print("Smaller: ", node.sons)
+                        #r = self.analyse_state(Node(new_box_array, m[0], node, m, bound))
+                        #if r is not None:
+                        #    return r
                         f = False
                         break
                 if f:
                     node.sons.append(Node(new_box_array, m[0], node, m, bound))
+                    #r = self.analyse_state(Node(new_box_array, m[0], node, m, bound))
+                    #if r is not None:
+                    #    return r
                     # print("Last: ", node.sons)
                     # result.append(Node(new_box_array, pos, node, m, bound))
 
-        # print(node.sons)
+        if len(node.sons) > 2:
+            node.sons = node.sons[:2]
         return None
 
     def execute(self, current_node, depth=0):
@@ -136,6 +144,9 @@ class Execution:
             if r is not None:
                 return r
         return None
+
+    '''def execute(self, current_node):
+        return self.analyse_state(current_node)'''
 
 
 # Helpers
