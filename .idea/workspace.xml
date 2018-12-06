@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66994118-cbfb-403a-b8a4-7bce6c6ac529" name="Default" comment="Optimized deadlock detection and reachable detection">
-      <change afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level4.txt" afterDir="false" />
+    <list default="true" id="66994118-cbfb-403a-b8a4-7bce6c6ac529" name="Default" comment="Improved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SokobanRobot" beforeDir="false" afterPath="$PROJECT_DIR$/SokobanRobot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py" afterDir="false" />
     </list>
@@ -15,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SokobanRobot$Solver.coverage" NAME="Solver Coverage Results" MODIFIED="1543480715956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sokoban-LEGOmindstorms" />
+    <SUITE FILE_PATH="coverage/SokobanRobot$Solver.coverage" NAME="Solver Coverage Results" MODIFIED="1543947375841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sokoban-LEGOmindstorms" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -32,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level3.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="68">
+              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding>
                 <element signature="e#33#54#0" expanded="true" />
               </folding>
@@ -61,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+            <state relative-caret-position="561">
+              <caret line="85" column="39" lean-forward="true" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
@@ -71,9 +72,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1394">
+              <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/TranspositionTable.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
+            <state relative-caret-position="510">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -85,10 +95,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Metrics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+            <state relative-caret-position="986">
+              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/AssignmentAlgorithms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,12 +170,13 @@
         <option value="$PROJECT_DIR$/src/distanceboard/grid/GridCell.java" />
         <option value="$PROJECT_DIR$/src/distanceboard/Viewer.java" />
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level3.txt" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/Map.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/TranspositionTable.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/Metrics.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level4.txt" />
+        <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/AssignmentAlgorithms.py" />
+        <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py" />
         <option value="$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py" />
       </list>
@@ -171,7 +194,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,6 +242,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -357,6 +380,10 @@
       <workItem from="1543257734627" duration="9454000" />
       <workItem from="1543345223303" duration="5128000" />
       <workItem from="1543475780373" duration="5035000" />
+      <workItem from="1543518053820" duration="76000" />
+      <workItem from="1543762234264" duration="16212000" />
+      <workItem from="1543947178841" duration="3430000" />
+      <workItem from="1543991392671" duration="1304000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1540903197470</created>
@@ -386,16 +413,23 @@
       <option name="project" value="LOCAL" />
       <updated>1543179183851</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Improved">
+      <created>1543518108426</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543518108426</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89828000" />
+    <option name="totallyTimeSpent" value="110850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26666668" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28178695" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -438,7 +472,8 @@
     </ignored-roots>
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Optimized deadlock detection and reachable detection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimized deadlock detection and reachable detection" />
+    <MESSAGE value="Improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/PriorityQueue.java">
@@ -530,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="50" lean-forward="true" selection-start-line="110" selection-start-column="50" selection-end-line="110" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Map.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5185">
@@ -544,20 +572,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/TranspositionTable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/level/level3.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="e#33#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -568,30 +596,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Solver.py">
+    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/DeadlockDetection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="1394">
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/TranspositionTable.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
-            <element signature="e#33#54#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Metrics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+        <state relative-caret-position="986">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/AssignmentAlgorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sokoban-LEGOmindstorms/Execution.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="124" column="29" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="29" />
+        <state relative-caret-position="561">
+          <caret line="85" column="39" lean-forward="true" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>

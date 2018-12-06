@@ -122,8 +122,8 @@ class Execution:
                     # print("Last: ", node.sons)
                     # result.append(Node(new_box_array, pos, node, m, bound))
 
-        if len(node.sons) > 2:
-            node.sons = node.sons[:2]
+        #if len(node.sons) > 2:
+        #    node.sons = node.sons[:2]
         return None
 
     def execute(self, current_node, depth=0):

@@ -107,7 +107,7 @@ class DeadlockDetection:
             self._reku_pull(a-1, visited)
         if a + 2*self.width < len(self.game_array) and self.game_array[a+self.width] != 4 and self.game_array[a+2*self.width] != 4:
             self._reku_pull(a+self.width, visited)
-        if a - 2*self.width >= 0 and self.game_array[a-self.width] != 4 and self.game_array[a-2*self.width]:
+        if a - 2*self.width >= 0 and self.game_array[a-self.width] != 4 and self.game_array[a-2*self.width] != 4:
             self._reku_pull(a-self.width, visited)
 
 
